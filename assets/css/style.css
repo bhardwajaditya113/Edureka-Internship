@@ -9,12 +9,97 @@ a {
 }
 
 a:hover{
-    color: #3b8af2;
+    color: #106eea;
     text-decoration: none;
 }
 
 h1, h2, h3, h4, h5, h6{
     font-family: "Roboto", sans-serif;
+}
+
+#preloader{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 9999;
+    overflow: hidden;
+    background: #fff;
+}
+
+#preloader:before{
+    content: "";
+    position: fixed;
+    top: calc(50% - 30px);
+    left: calc(50% - 30px);
+    border: 6px solid #106eea;
+    border-top-color: #e2eefd;
+    border-radius: 50%;
+    width:60px;
+    height: 60px;
+    --webkit-animation: animation-preloader 1s linear infinite;
+    animation: animate-preloader 1s linear infinite;
+}
+
+
+@-webkit-keyframes animation-preloader {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes animation-preloader {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+.back-to-top{
+    position: fixed;
+    visibility: hidden;
+    opacity: 0;
+    right: 15px;
+    bottom: 15px;
+    z-index: 996;
+    background: #106eea;
+    width: 40px;
+    height: 40px;
+    border-radius: 4px;
+    transition: all 0.4s;
+}
+
+.back-to-top i{
+    font-size: 28px;
+    color: #fff;
+    line-height: 0;
+}
+
+.back-to-top:hover{
+    background: #3284f1;
+    color: #fff;
+}
+
+.back-to-top.active{
+    visibility: visible;
+    opacity: 1;
+}
+
+/*--------
+#Disable aos animation delay on mobile devices
+**/
+@media screen and (max-width: 768px){
+    [data-aos-delay]{
+        transition-delay: 0 !important;
+    }
 }
 
 /**
@@ -71,4 +156,52 @@ h1, h2, h3, h4, h5, h6{
 
 #header.fixed-top{
     height: 70px;
+}
+
+#header .logo{
+    font-size: 30px;
+    margin: 0;
+    padding: 0;
+    line-height: 1;
+    font-weight: 600;
+    letter-spacing: 0.8px;
+    font-family: "Poppins", sans-serif;
+}
+
+#header .logo a{
+    color: #222222;
+}
+
+#header .logo a span{
+    color: #106eea;
+}
+
+#header .logo img{
+    max-height: 40px;
+}
+
+.scrolled-offset{
+    margin-top: 70px;
+}
+
+
+.navbar{
+    padding: 0;
+}
+
+.navbar ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    list-style: none;
+    align-items: center;
+}
+
+.navbar li{
+    position: relative;
+}
+
+.navbar > ul > li {
+    white-space: nowrap;
+    padding: 10px 0 10px 28px;
 }
